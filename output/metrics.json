@@ -1,0 +1,139 @@
+{
+  "models": {
+    "logistic": {
+      "auc": 0.7309518958870345,
+      "ks": 0.3985378919075059,
+      "brier": 0.14217819703783394,
+      "mean_pd": 0.22051184184613973
+    },
+    "boosted": {
+      "auc": 0.7812939294022417,
+      "ks": 0.4214689458247662,
+      "brier": 0.13503219796761762,
+      "mean_pd": 0.21988752682068102
+    }
+  },
+  "best_model": "boosted",
+  "n_train": 21000,
+  "n_test": 9000,
+  "test_default_rate": 0.2212222222222222,
+  "calibration": [
+    {
+      "bucket": 0,
+      "accounts": 907,
+      "observed_pd": 0.03307607497243661,
+      "predicted_pd": 0.04362268010210696,
+      "gap": -0.010546605129670351
+    },
+    {
+      "bucket": 1,
+      "accounts": 920,
+      "observed_pd": 0.0641304347826087,
+      "predicted_pd": 0.06652943834892297,
+      "gap": -0.00239900356631427
+    },
+    {
+      "bucket": 2,
+      "accounts": 898,
+      "observed_pd": 0.09020044543429843,
+      "predicted_pd": 0.08734558699831976,
+      "gap": 0.0028548584359786716
+    },
+    {
+      "bucket": 3,
+      "accounts": 881,
+      "observed_pd": 0.11804767309875142,
+      "predicted_pd": 0.11420351886504453,
+      "gap": 0.0038441542337068896
+    },
+    {
+      "bucket": 4,
+      "accounts": 954,
+      "observed_pd": 0.16981132075471697,
+      "predicted_pd": 0.14094967729522526,
+      "gap": 0.028861643459491715
+    },
+    {
+      "bucket": 5,
+      "accounts": 841,
+      "observed_pd": 0.17360285374554102,
+      "predicted_pd": 0.16838062431090373,
+      "gap": 0.005222229434637293
+    },
+    {
+      "bucket": 6,
+      "accounts": 899,
+      "observed_pd": 0.19021134593993325,
+      "predicted_pd": 0.1978864875137022,
+      "gap": -0.0076751415737689455
+    },
+    {
+      "bucket": 7,
+      "accounts": 905,
+      "observed_pd": 0.26077348066298345,
+      "predicted_pd": 0.2623229476536324,
+      "gap": -0.001549466990648951
+    },
+    {
+      "bucket": 8,
+      "accounts": 895,
+      "observed_pd": 0.41899441340782123,
+      "predicted_pd": 0.41618234699594137,
+      "gap": 0.0028120664118798655
+    },
+    {
+      "bucket": 9,
+      "accounts": 900,
+      "observed_pd": 0.6966666666666667,
+      "predicted_pd": 0.705895258177862,
+      "gap": -0.009228591511195372
+    }
+  ],
+  "importance": [
+    {
+      "feature": "DELINQ_MAX",
+      "importance": 0.05357637690337018
+    },
+    {
+      "feature": "PAY_1",
+      "importance": 0.02565352761990245
+    },
+    {
+      "feature": "UTILISATION",
+      "importance": 0.012620890167832698
+    },
+    {
+      "feature": "BILL_AMT1",
+      "importance": 0.012246635039587206
+    },
+    {
+      "feature": "LIMIT_BAL",
+      "importance": 0.008559053621164093
+    },
+    {
+      "feature": "PAY_AMT1",
+      "importance": 0.006900183369032931
+    },
+    {
+      "feature": "DELINQ_MEAN",
+      "importance": 0.005281764802791145
+    },
+    {
+      "feature": "PAY_AMT2",
+      "importance": 0.0038968122996630773
+    },
+    {
+      "feature": "BILL_TREND",
+      "importance": 0.0029678853743258403
+    },
+    {
+      "feature": "PAY_AMT_TREND",
+      "importance": 0.0014812267989518179
+    }
+  ],
+  "pd_calibration": {
+    "target_mean_pd_12m": 0.035,
+    "log_odds_shift": -2.462684322222885,
+    "mean_pd_after_calibration": 0.03499999999999999
+  }
+}

@@ -1,0 +1,4 @@
+trigger,threshold,observed,fired
+Expected loss increase under the adverse scenario,>= 25% of baseline ECL,34.7%,True
+Stressed coverage (ECL / EAD),>= 8%,3.6%,False
+Stage 2 share of exposure,>= 30%,24.6%,False

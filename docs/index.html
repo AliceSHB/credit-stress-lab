@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Credit stress test</title>
+<style>
+body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:900px;margin:48px auto;color:#1c2230;line-height:1.55}
+h1{font-size:26px;border-bottom:3px solid #1F3864;padding-bottom:10px}
+h2{font-size:16px;color:#1F3864;margin-top:34px;text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:10px}
+th,td{border-bottom:1px solid #e3e6ec;padding:8px 10px;text-align:left}
+th{background:#f4f6fa;font-weight:600}
+.kpi{display:flex;gap:18px;margin:18px 0;flex-wrap:wrap}
+.kpi div{background:#f4f6fa;padding:14px 18px;border-radius:6px;min-width:150px}
+.kpi b{display:block;font-size:22px;color:#1F3864}
+li.hot{color:#a4262c;font-weight:600}
+</style></head><body>
+<h1>Credit stress test - portfolio note</h1>
+<div class="kpi">
+<div><span>Model</span><b>boosted</b></div>
+<div><span>AUC</span><b>0.781</b></div>
+<div><span>KS</span><b>0.421</b></div>
+<div><span>Satellite R&sup2;</span><b>0.199</b></div>
+</div>
+<h2>Stress results</h2>
+<table><tr><th>Scenario</th><th>PD multiplier</th><th>Mean 12m PD</th><th>ECL</th>
+<th>Coverage</th><th>Stage 2 share</th></tr><tr><td>baseline</td><td>1.00x</td><td>3.50%</td><td>33.9m</td><td>2.20%</td><td>19%</td></tr><tr><td>adverse</td><td>1.35x</td><td>4.71%</td><td>45.6m</td><td>2.97%</td><td>22%</td></tr><tr><td>severe</td><td>1.64x</td><td>5.73%</td><td>55.4m</td><td>3.60%</td><td>25%</td></tr></table>
+<h2>Overlay triggers</h2><ul><li class='hot'>Expected loss increase under the adverse scenario - 34.7% (threshold >= 25% of baseline ECL)</li><li class=''>Stressed coverage (ECL / EAD) - 3.6% (threshold >= 8%)</li><li class=''>Stage 2 share of exposure - 24.6% (threshold >= 30%)</li></ul>
+<h2>Method</h2>
+<p>Loan-level PD from a calibrated gradient-boosted model; a macro satellite model maps the
+cycle into a PD multiplier; expected loss, coverage and staging follow. Numbers are on a
+public retail credit file and are a demonstration of method, not a portfolio view.</p>
+</body></html>
