@@ -12,6 +12,8 @@
 
 The sector limits sum to more than appetite because limits are set on four dimensions that overlap - an obligor sits inside a sector and a country. Only same-dimension sums are additive, which is why utilisation is read bucket by bucket and never across cuts.
 
+Three cuts are complete and reconcile to the same 1,735m: sub-portfolio, sector and country. The single-name register holds the ten largest names, which cover 15% of the book - a limit is not set on every small obligor, so that cut is deliberately partial.
+
 ## Worst five buckets against their limits
 
 | Dimension | Bucket | Exposure | Limit | Utilisation | Headroom | State |

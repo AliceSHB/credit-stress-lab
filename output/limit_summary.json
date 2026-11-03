@@ -1,6 +1,7 @@
 {
   "total_exposure": 1734605489.0,
-  "reconciles": false,
+  "full_cuts_reconcile": true,
+  "obligor_coverage": 0.15327924804001355,
   "breaches": 1,
   "early_warnings": 7,
   "buckets": 27,

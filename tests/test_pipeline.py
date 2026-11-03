@@ -6,6 +6,7 @@ import pytest
 from credit_stress.data import load_loans, load_macro
 from credit_stress.model import calibrate_level
 from credit_stress.satellite import fit_satellite, scenario_multipliers
+from credit_stress.limits import assess, build_book, build_register, reconcile
 from credit_stress.stress import run_stress
 
 
@@ -53,3 +54,15 @@ def test_stress_is_monotone_and_additive(loans, macro):
     for s in res.index:
         assert res.loc[s, "coverage"] == pytest.approx(res.loc[s, "ecl"] / res.loc[s, "ead"])
     assert set(trig.columns) == {"trigger", "threshold", "observed", "fired"}
+
+
+def test_limit_cuts_reconcile_or_are_declared_partial():
+    book = build_book()
+    register = build_register(book)
+    rec = reconcile(book, register)
+
+    assert rec["full_cuts_reconcile"], "sub-portfolio, sector and country must sum to total exposure"
+    assert 0 < rec["obligor_coverage"] <= 1
+    reg = assess(register)
+    assert set(reg["state"]).issubset({"Within appetite", "Early warning", "Breach"})
+    assert (reg["headroom"] == reg["limit"] - reg["exposure"]).all()

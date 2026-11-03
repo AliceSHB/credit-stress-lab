@@ -119,11 +119,21 @@ def three_layers(book: pd.DataFrame, register: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+FULL_CUTS = ["sub_portfolio", "sector", "country"]
+
+
 def reconcile(book: pd.DataFrame, register: pd.DataFrame) -> dict:
+    """Three cuts are complete; the single-name register is top-N by design."""
     total = float(book["ead"].sum())
-    by_dim = (register.groupby("dimension")["exposure"].sum() / total).to_dict()
-    return {"total_exposure": total, "share_by_dimension": by_dim,
-            "reconciles": all(abs(v - 1.0) < 1e-9 for v in by_dim.values())}
+    shares = {cut: float(register.loc[register["dimension"] == cut, "exposure"].sum() / total)
+              for cut in FULL_CUTS}
+    obligor = float(register.loc[register["dimension"] == "obligor", "exposure"].sum() / total)
+    return {
+        "total_exposure": total,
+        "share_by_full_cut": shares,
+        "obligor_coverage": obligor,
+        "full_cuts_reconcile": all(abs(v - 1.0) < 1e-9 for v in shares.values()),
+    }
 
 
 def report(book: pd.DataFrame, reg: pd.DataFrame, layers: pd.DataFrame, rec: dict) -> str:
@@ -151,6 +161,11 @@ def report(book: pd.DataFrame, reg: pd.DataFrame, layers: pd.DataFrame, rec: dic
         "The sector limits sum to more than appetite because limits are set on four dimensions "
         "that overlap - an obligor sits inside a sector and a country. Only same-dimension sums "
         "are additive, which is why utilisation is read bucket by bucket and never across cuts.",
+        "",
+        f"Three cuts are complete and reconcile to the same "
+        f"{rec['total_exposure']/1e6:,.0f}m: sub-portfolio, sector and country. The single-name "
+        f"register holds the ten largest names, which cover {rec['obligor_coverage']:.0%} of the book - "
+        f"a limit is not set on every small obligor, so that cut is deliberately partial.",
         "",
         "## Worst five buckets against their limits", "",
               "| Dimension | Bucket | Exposure | Limit | Utilisation | Headroom | State |",
@@ -256,7 +271,8 @@ def main(out_dir="output", docs_dir="docs"):
     (docs / "limits.html").write_text(html(book, reg, layers, rec))
     (out / "limit_summary.json").write_text(json.dumps({
         "total_exposure": rec["total_exposure"],
-        "reconciles": rec["reconciles"],
+        "full_cuts_reconcile": rec["full_cuts_reconcile"],
+        "obligor_coverage": rec["obligor_coverage"],
         "breaches": int((reg["state"] == "Breach").sum()),
         "early_warnings": int((reg["state"] == "Early warning").sum()),
         "buckets": int(len(reg)),
