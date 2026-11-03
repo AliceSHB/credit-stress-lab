@@ -9,18 +9,13 @@ Everything runs from two public sources with one command.
 
 ```bash
 pip install -r requirements.txt
-python -m credit_stress.run     # writes output/ and docs/index.html
+python -m credit_stress.run     # stress test -> output/ and docs/index.html
+python -m credit_stress.limits  # limits     -> output/ and docs/limits.html
 pytest -q
 ```
 
-The macro series (`data/fred_*.csv`) are committed so the satellite model is
-reproducible offline. The loan file is not committed; download it once from the
-UCI repository into `data/`:
-
-```bash
-curl -L -o data/uci.zip "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip"
-unzip -o data/uci.zip -d data/
-```
+Both sources are committed, so the pipeline runs offline: the FRED series as
+CSV, and the UCI loan file as the original workbook.
 
 ## The chain
 
@@ -73,6 +68,27 @@ Adverse expected loss is +35% against baseline and breaches the overlay
 threshold; severe is +64%. Amounts are in the source file's local currency
 (TWD) and are not converted.
 
+## Risk appetite and limits
+
+`python -m credit_stress.limits` adds the layer a limit framework actually asks
+for: **how far is each bucket from its limit**. A register is set on four cuts
+(single name, sector, country, sub-portfolio), and every bucket reports
+utilisation, headroom in currency, headroom as a share of the limit, and a state
+(within appetite / early warning at 85% / breach at 100%) that maps to an owner
+and an action.
+
+The three layers are kept apart - capacity, appetite, limit - so the reader can
+see which one binds. Limits set on different dimensions overlap, so only
+same-dimension sums are additive; the note says so rather than adding them up.
+
+| Layer | Amount | Used | Utilisation | Headroom |
+|---|---|---|---|---|
+| Capacity (1.50x) | 2,602m | 1,735m | 66.7% | 867m |
+| Appetite (1.15x) | 1,995m | 1,735m | 87.0% | 260m |
+
+One bucket breaches and four sit in early warning, which is what the register is
+sized to demonstrate.
+
 ## What this is not
 
 - **Not a through-the-cycle PD model.** The loan file is a single period with no
@@ -96,6 +112,7 @@ credit_stress/
   model.py      PD models, calibration, AUC/KS, permutation importance
   satellite.py  macro regression, scenario paths, PD multipliers
   stress.py     expected loss, coverage, staging, overlay triggers
+  limits.py     risk appetite register, utilisation, headroom and escalation
   report.py     commentary and the one-page HTML note
   run.py        the pipeline
 tests/          calibration, ordering and reconciliation checks

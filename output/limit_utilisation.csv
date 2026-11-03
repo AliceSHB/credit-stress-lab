@@ -1,0 +1,28 @@
+dimension,bucket,exposure,limit,owner,trigger,escalation,utilisation,headroom,headroom_pct,state
+country,DK,168736452.0,190823115.0,Credit Risk Owner - DK,0.85,Early warning: notify owner and agree action,0.8842558303274737,22086663.0,0.11574416967252632,Early warning
+country,FI,756180128.0,868611298.0,Credit Risk Owner - FI,0.85,Early warning: notify owner and agree action,0.8705621602448924,112431170.0,0.1294378397551076,Early warning
+country,NO,260269591.0,321206485.0,Credit Risk Owner - NO,0.85,Report only,0.8102874728696714,60936894.0,0.1897125271303286,Within appetite
+country,PL,143180403.0,183231229.0,Credit Risk Owner - PL,0.85,Report only,0.7814192142977986,40050826.0,0.2185807857022014,Within appetite
+country,EE,66953851.0,90756492.0,Credit Risk Owner - EE,0.85,Report only,0.7377307069118537,23802641.0,0.2622692930881463,Within appetite
+country,SE,339285064.0,522262311.0,Credit Risk Owner - SE,0.85,Report only,0.649644932927201,182977247.0,0.35035506707279895,Within appetite
+obligor,Obligor 0103,42160506.0,40538948.0,Credit Risk Owner - Obligor 0103,0.85,Escalate to Risk Committee; require a reduction plan,1.0400000019734108,-1621558.0,-0.040000001973410804,Breach
+obligor,Obligor 0305,21484456.0,24110656.0,Credit Risk Owner - Obligor 0305,0.85,Early warning: notify owner and agree action,0.8910772066923438,2626200.0,0.1089227933076562,Early warning
+obligor,Obligor 0291,20739717.0,23530338.0,Credit Risk Owner - Obligor 0291,0.85,Early warning: notify owner and agree action,0.8814032760600379,2790621.0,0.11859672393996212,Early warning
+obligor,Obligor 0079,19770587.0,23065820.0,Credit Risk Owner - Obligor 0079,0.85,Early warning: notify owner and agree action,0.8571378342499855,3295233.0,0.14286216575001454,Early warning
+obligor,Obligor 0272,24350677.0,31537865.0,Credit Risk Owner - Obligor 0272,0.85,Report only,0.7721092407491756,7187188.0,0.22789075925082436,Within appetite
+obligor,Obligor 0234,33478669.0,49056607.0,Credit Risk Owner - Obligor 0234,0.85,Report only,0.6824497462696513,15577938.0,0.31755025373034873,Within appetite
+obligor,Obligor 0204,28715819.0,44617675.0,Credit Risk Owner - Obligor 0204,0.85,Report only,0.6435973860135025,15901856.0,0.35640261398649753,Within appetite
+obligor,Obligor 0049,32620040.0,62226489.0,Credit Risk Owner - Obligor 0049,0.85,Report only,0.5242146957704781,29606449.0,0.4757853042295219,Within appetite
+obligor,Obligor 0287,19883852.0,39702355.0,Credit Risk Owner - Obligor 0287,0.85,Report only,0.5008229864450107,19818503.0,0.49917701355498934,Within appetite
+obligor,Obligor 0158,22674702.0,46258112.0,Credit Risk Owner - Obligor 0158,0.85,Report only,0.4901778524813118,23583410.0,0.5098221475186882,Within appetite
+sector,Shipping,166613973.0,181841532.0,Credit Risk Owner - Shipping,0.85,Early warning: notify owner and agree action,0.9162591799985496,15227559.0,0.08374082000145044,Early warning
+sector,Real Estate,404297526.0,459429007.0,Credit Risk Owner - Real Estate,0.85,Early warning: notify owner and agree action,0.8799999996517416,55131481.0,0.12000000034825842,Early warning
+sector,Energy,249427048.0,327029848.0,Credit Risk Owner - Energy,0.85,Report only,0.7627042287589603,77602800.0,0.23729577124103973,Within appetite
+sector,Manufacturing,349963025.0,489691229.0,Credit Risk Owner - Manufacturing,0.85,Report only,0.7146605948296452,139728204.0,0.28533940517035483,Within appetite
+sector,Financial Institutions,168332824.0,306324088.0,Credit Risk Owner - Financial Institutions,0.85,Report only,0.5495252596655082,137991264.0,0.45047474033449175,Within appetite
+sector,Agriculture,98637144.0,182325845.0,Credit Risk Owner - Agriculture,0.85,Report only,0.5409937576321119,83688701.0,0.4590062423678881,Within appetite
+sector,Public Sector,100198191.0,195280931.0,Credit Risk Owner - Public Sector,0.85,Report only,0.5130976715796178,95082740.0,0.48690232842038217,Within appetite
+sector,Retail,197135758.0,399477641.0,Credit Risk Owner - Retail,0.85,Report only,0.49348383430550996,202341883.0,0.5065161656944901,Within appetite
+sub_portfolio,Mid Corporate,728754487.0,976292577.0,Credit Risk Owner - Mid Corporate,0.85,Report only,0.7464509145807016,247538090.0,0.25354908541929844,Within appetite
+sub_portfolio,Large Corporate,626766723.0,918407142.0,Credit Risk Owner - Large Corporate,0.85,Report only,0.6824497484145218,291640419.0,0.3175502515854782,Within appetite
+sub_portfolio,Institutions,379084279.0,723146986.0,Credit Risk Owner - Institutions,0.85,Report only,0.5242146981720256,344062707.0,0.4757853018279744,Within appetite

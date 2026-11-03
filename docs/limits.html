@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Risk appetite and limits</title><style>
+body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:900px;margin:48px auto;color:#1c2230;line-height:1.55}
+h1{font-size:26px;border-bottom:3px solid #1F3864;padding-bottom:10px}
+h2{font-size:15px;color:#1F3864;margin-top:32px;text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:10px}
+th,td{border-bottom:1px solid #e3e6ec;padding:8px 10px;text-align:left}
+th{background:#f4f6fa;font-weight:600}
+.red{color:#a4262c;font-weight:600}.amber{color:#9a6b1c;font-weight:600}
+nav{font-size:13px;margin-bottom:6px}nav a{color:#1F3864;margin-right:14px}
+.kpi{display:flex;gap:16px;margin:18px 0;flex-wrap:wrap}
+.kpi div{background:#f4f6fa;padding:14px 18px;border-radius:6px;min-width:140px}
+.kpi b{display:block;font-size:22px;color:#1F3864}
+</style></head><body>
+<nav><a href="index.html">Stress test</a><a href="limits.html">Risk appetite &amp; limits</a></nav>
+<h1>Risk appetite and limit utilisation</h1>
+<div class="kpi">
+<div><span>Obligors</span><b>320</b></div>
+<div><span>Exposure</span><b>1,735m</b></div>
+<div><span>Breaches</span><b>1</b></div>
+<div><span>Early warnings</span><b>7</b></div>
+</div>
+<h2>Distance to the three layers</h2>
+<table><tr><th>Layer</th><th>Amount</th><th>Used</th><th>Utilisation</th><th>Headroom</th></tr>
+<tr><td>Capacity</td><td>2,602m</td><td>1,735m</td><td>66.7%</td><td>867m</td></tr><tr><td>Appetite</td><td>1,995m</td><td>1,735m</td><td>87.0%</td><td>260m</td></tr><tr><td>Sum of sector limits</td><td>2,541m</td><td>1,735m</td><td>68.3%</td><td>807m</td></tr></table>
+<p>Limits are set on four cuts that overlap, so only same-dimension sums are additive. The note
+says so rather than adding them up.</p>
+<h2>Worst buckets against their limits</h2>
+<table><tr><th>Dimension</th><th>Bucket</th><th>Exposure</th><th>Limit</th><th>Utilisation</th>
+<th>Headroom</th><th>State</th></tr><tr><td>obligor</td><td>Obligor 0103</td><td>42.2m</td><td>40.5m</td><td>104%</td><td>-1.6m</td><td class='red'>Breach</td></tr><tr><td>sector</td><td>Shipping</td><td>166.6m</td><td>181.8m</td><td>92%</td><td>15.2m</td><td class='amber'>Early warning</td></tr><tr><td>obligor</td><td>Obligor 0305</td><td>21.5m</td><td>24.1m</td><td>89%</td><td>2.6m</td><td class='amber'>Early warning</td></tr><tr><td>country</td><td>DK</td><td>168.7m</td><td>190.8m</td><td>88%</td><td>22.1m</td><td class='amber'>Early warning</td></tr><tr><td>obligor</td><td>Obligor 0291</td><td>20.7m</td><td>23.5m</td><td>88%</td><td>2.8m</td><td class='amber'>Early warning</td></tr><tr><td>sector</td><td>Real Estate</td><td>404.3m</td><td>459.4m</td><td>88%</td><td>55.1m</td><td class='amber'>Early warning</td></tr><tr><td>country</td><td>FI</td><td>756.2m</td><td>868.6m</td><td>87%</td><td>112.4m</td><td class='amber'>Early warning</td></tr><tr><td>obligor</td><td>Obligor 0079</td><td>19.8m</td><td>23.1m</td><td>86%</td><td>3.3m</td><td class='amber'>Early warning</td></tr></table>
+<h2>Method</h2>
+<p>Every bucket carries a limit, an owner, a trigger and an escalation action. The state is a
+distance, not a level: within appetite below 85%, early warning to 100%, breach above it. The book
+is illustrative and the limits are sized to exercise each state.</p>
+</body></html>

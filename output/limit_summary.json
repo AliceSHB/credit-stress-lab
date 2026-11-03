@@ -1,0 +1,30 @@
+{
+  "total_exposure": 1734605489.0,
+  "reconciles": false,
+  "breaches": 1,
+  "early_warnings": 7,
+  "buckets": 27,
+  "layers": [
+    {
+      "layer": "Capacity",
+      "amount": 2601908233.5,
+      "used": 1734605489.0,
+      "utilisation": 0.6666666666666666,
+      "headroom": 867302744.5
+    },
+    {
+      "layer": "Appetite",
+      "amount": 1994796312.35,
+      "used": 1734605489.0,
+      "utilisation": 0.8695652173913044,
+      "headroom": 260190823.3499999
+    },
+    {
+      "layer": "Sum of sector limits",
+      "amount": 2541400121.0,
+      "used": 1734605489.0,
+      "utilisation": 0.6825393115655715,
+      "headroom": 806794632.0
+    }
+  ]
+}
