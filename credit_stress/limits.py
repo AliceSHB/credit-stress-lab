@@ -240,8 +240,10 @@ def html(book, reg, layers, rec) -> str:
 <h2>Distance to the three layers</h2>
 <table><tr><th>Layer</th><th>Amount</th><th>Used</th><th>Utilisation</th><th>Headroom</th></tr>
 {layer_rows}</table>
-<p>Limits are set on four cuts that overlap, so only same-dimension sums are additive. The note
-says so rather than adding them up.</p>
+<p>Limits are set on four cuts that overlap, so only same-dimension sums are additive. Three cuts
+&mdash; sub-portfolio, sector and country &mdash; reconcile to the same {rec['total_exposure']/1e6:,.0f}m.
+The single-name register holds the ten largest names, which cover {rec['obligor_coverage']:.0%} of the
+book, because a limit is not set on every small obligor.</p>
 <h2>Worst buckets against their limits</h2>
 <table><tr><th>Dimension</th><th>Bucket</th><th>Exposure</th><th>Limit</th><th>Utilisation</th>
 <th>Headroom</th><th>State</th></tr>{rows}</table>
